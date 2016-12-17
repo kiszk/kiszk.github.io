@@ -2,6 +2,7 @@
 layout: post
 title: Spark内部構造解説ドキュメントのリンク集
 categories: ['ApacheSpark']
+tags: ['spark']
 ---
 
 （翻訳を除き）全て英語のスライド・文書ですが、長い文が書かれているものは少ないので、理解できるかと思います。（翻訳を除き）全て英語のスライド・文書ですが、長い文が書かれているものは少ないので、理解できるかと思います。（[Qiita](http://qiita.com/kiszk/items/53ec7f0419d71790d9af)から引っ越してきました。）
