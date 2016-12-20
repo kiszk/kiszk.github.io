@@ -20,6 +20,7 @@ published: true
 * これらのプルリクは、SIMDを使わないCPUでも効果があり、マイクロベンチマークでは18倍以上高速化される場合があります
 
 # Bringing Apache Spark Closer to SIMD and GPU
+
 ## 最初に
 
 Apache Sparkは、コミュニティによる多くの貢献でによって、[目覚ましい性能向上](https://databricks.com/blog/2016/07/26/introducing-apache-spark-2-0.html)をとげています。
