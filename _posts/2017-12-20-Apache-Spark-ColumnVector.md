@@ -7,15 +7,12 @@ published: true
 ---
 
 # この記事は？
-
 この記事は、[Data Platform Advent Calendar 2017](https://qiita.com/advent-calendar/2017/dataplatform)の20日目の記事です。
 
 # この記事の内容は？
-
 2018年の早い時期にリリース予定のApache Spark 2.3に入る、Columnar storage（Spark内部では`ColumnVector`クラスで定義されています）の改善に関するまとめです。
 
 # 結局何がいいたいの？
-
 - `ColumnVector`は、Spark 2.2までは内部構造体として使われていました。Apache Parquetのデータを読み込んだ際の内部的なデータ置き場、に使われていました。  
 Spark 2.3では、下記のような拡張があります。
 - `ColumnVector`は、publicなデータ構造とAPIになります。
