@@ -76,7 +76,7 @@ Caused by: org.codehaus.janino.JaninoRuntimeException: Constant pool for class o
 
 SparkのCatalystには、[whole-stage codegen](https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-billion-rows-per-second-on-a-laptop.html)という、複数のquery（例えば、複数の`filter()`）を１つのJavaメソッド内で処理する最適化されたJavaコードを生成する最適化があります。Whole-stage codegenでは複数のqueryを１つのメソッドで処理するようにするため、１つのメソッドのサイズが大きくなりがちです。  
 実は、実装上の都合により複数メソッドに分割する機能は、whole-stage codegenというより最適化されたコード生成を行うパスでは動きません。従って、Whole-stage codegenでは、生成されるメソッドの大きさを抑制するため、下記のどちらかの条件に当てはまったときには、whole-stage codegenを止めて、１つ１つのqueryごとにJavaプログラムを生成していました。
-1. 100カラムより大きなデータは、whole-stage codegenを止める（オプション`spark.sql.codegen.maxFields`で決められています）
+1. 100より大きなフィールドを扱う文を持つqueryがある場合、whole-stage codegenを止める（オプション`spark.sql.codegen.maxFields`で決められています）
 2. 8000byteを超えるJavaバイトコードが生成された場合は、whole-stage codegenを止める（[プルリク](https://github.com/apache/spark/pull/19083)）
 
 １つ１つのqueryごとにコードを生成しても当然正しく動くのですが、whole-stage codegenで生成されたプログラムと比較すると、Javaプログラム間のデータ受け渡しのオーバヘッドが大きく、性能が今ひとつです。なんとかWhole-stage codegenが動くように、ということで、@maropuさんがコードが大きくなりがちなaggregationの場合に関して、whole-stage codegenでもメソッドを分割して生成できるようにする[プルリク](https://github.com/apache/spark/pull/19082)を投げました。  
