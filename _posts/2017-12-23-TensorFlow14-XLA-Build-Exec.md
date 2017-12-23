@@ -8,7 +8,7 @@ published: true
 
 # この記事は？
 
-この記事は、[Data Platform Advent Calendar 2017](https://qiita.com/advent-calendar/2017/dataplatform)の21日目の記事です。
+この記事は、[TensorFlow Advent Calendar 2017](https://qiita.com/advent-calendar/2017/tensorflow)の21日目の記事です。
 
 # この記事の内容は？
 
