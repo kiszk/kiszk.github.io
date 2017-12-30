@@ -1,24 +1,46 @@
 ---
 layout: default
 ---
+<h1 class="hdg-lv1-01">New entry</h1>
 
-<div class="posts">
-  {% for post in paginator.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <p class="date">{{ post.date | date: "%Y.%m.%d" }}</p>
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
-
+<div class="posts cards">
+{% for post in paginator.posts %}
+<article class="card">
+<div class="image">
+<a href="{{ site.baseurl }}{{ post.url }}"><img src="{{ site.baseurl }}{{ post.thumnail }}" alt=""></a>
+<!-- /image --></div>
+<div class="content">
+<time>{{ post.date | date_to_long_string }}</time>
+<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+<div class="txt-01">
+<p>{{ post.description }}</p>
+<!-- /text-wrap --></div>
+<div class="post-tags">
 <ul>
-  {% if paginator.previous_page %}<li><a href="/{% if paginator.previous_page != 1 %}page{{ paginator.previous_page }}/{% endif %}">newer</a></li>{% endif %}
-  {% if paginator.next_page %}<li><a href="/page{{ paginator.next_page }}/">older</a></li>{% endif %}
+{% assign tags = post.tags %}
+{% for tag in tags %}
+<li><i class="icon fa fa-tags"></i> <a href="{{ site.baseurl }}/tags#{{ post.tags | slugize }}">
+{{ tag }}
+</a></li>
+{% endfor %}
 </ul>
+</div>
+<!-- /content --></div>
+<!-- /card --></article>
+{% endfor %}
+<!-- /posts cards --></div>
+
+<!-- pagination -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+<ul class="pagination-list">
+{% if paginator.previous_page %}
+<li class="prev"><a href="{{ paginator.previous_page_path | relative_url }}">&lt; Prev page</a></li>
+{% endif %}
+{% if paginator.next_page %}
+<li class="next"><a href="{{ paginator.next_page_path | relative_url }}">Next page &gt;</a></li>
+{% endif %}
+</ul>
+<p>{{ paginator.page }} / {{ paginator.total_pages }}</p>
+</div>
+{% endif %}

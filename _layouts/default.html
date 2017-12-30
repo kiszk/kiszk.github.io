@@ -1,69 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+{% include meta.html %}
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" /> -->
+</head>
 
-    {% include meta.html %}
+<body>
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<div id="wrap">
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+{% include header.html %}
 
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-  </head>
+<div id="contents">
 
-  <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+<main id="main">
+{{ content }}
+</main>
 
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
+<aside id="side">
+{% include side.html %}
+<!-- /side --></aside>
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
-	      <div class="grid" id="searchBar">
-	        <div>
-	          <div id="search">
-              <form role="search" method="get" action="{{site.baseurl}}/search/">
-		            <input id="searchString" name="searchString"
-                       placeholder="Be a Better Developer, etc." type="text">
-		            <input id="searchButton" name="googleSearchName" type="submit" value="Search">
-              </form>
-            </div>
-            <div id="archives">
-              browse by <a title="The complete archive of {{ site.name }}'s Blog by category"
-                         href="{{site.baseurl}}/categoryview">category</a> or <a title="The complete archive of
-     {{ site.name }}'s Blog by month"
-     href="{{site.baseurl}}/monthview">date</a>
-            </div>
-	  </div>
-    
-      
-      </div>
-    </div>
+<!-- /contents --></div>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
+{% include footer.html %}
 
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
+<!-- /wrap --></div>
 
-    {% include analytics.html %}
-  </body>
+{% include analytics.html %}
+
+</body>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js" crossorigin="anonymous"></script>
+<script src="{{ site.baseurl }}/js/run.js"></script>
 </html>

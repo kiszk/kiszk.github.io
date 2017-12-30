@@ -3,20 +3,38 @@ layout: default
 ---
 
 <article class="post">
-  <h1>{{ page.title }}</h1>
+<div class="blog-entry-header">
+<div class="date">
+<i class="icon fa fa-calendar"></i> {{ page.date | date: "%B %e, %Y" }}
+</div>
+<h1 class="hdg-lv1-01">{{ page.title }}</h1>
+<div class="blog-entry-info">
+<div class="categories">
+category : <a href="{{ site.baseurl }}/categories#{{ page.categories }}">{{ page.categories | array_to_sentence_string }}</a>
+</div>
+<div class="tags">
+<ul>
+{% assign tags = page.tags %}
+{% for tag in tags %}
+<li><i class="icon fa fa-tags"></i> <a href="{{ site.baseurl }}/tags#{{ tag }}">
+{{ tag }}
+</a></li>
+{% endfor %}
+</ul>
+</div>
+<!-- /article-info --></div>
+<!-- /article-header --></div>
 
-  <Div Align="right">
-    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </div>
+<div class="blog-entry-content">
+{{ content }}
+</div>
 
-  <div class="entry">
-    {{ content }}
-  </div>
+{% include disqus.html %}
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
+<div class="article-list-sns">
+<ul>
+<li><a class="btn tw" href="https://twitter.com/intent/tweet?text={{ page.title }} - {{ site.name }}&amp;url=https://kiszk.github.io{{ page.url }}" rel="nofollow" target="_blank" title="Share on Twitter"><i class="icon fa fa-twitter"></i> share</a></li>
+</ul>
+<!-- /article-list-sns --></div>
 
-  {% include disqus.html %}
 </article>
