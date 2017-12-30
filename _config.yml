@@ -7,6 +7,8 @@ name: Kazuaki Ishizaki
 author: kiszk
 url:  https://kiszk.github.io/
 
+timezone: Japan
+
 # Short bio or description (displayed in the header)
 description: Researcher and contributor for system software
 
@@ -68,9 +70,12 @@ permalink: /:year/:month/:day/:title/
 version: v1.2.0
 
 # Jekyll 3 now only supports Kramdown for Markdown
+markdown: kramdown
+
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
   input: GFM
+  hard_wrap: false
   # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
   syntax_highlighter: rouge
   syntax_highlighter_opts:
