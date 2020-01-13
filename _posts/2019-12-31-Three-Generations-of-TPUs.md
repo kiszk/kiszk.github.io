@@ -14,9 +14,10 @@ published: true
 GoogleのDistinguished Engineerである[David Patterson](https://research.google/people/105290/)の、2019年10月にワシントン大学で行われた講演[Domain Specific Architectures for Deep Neural Networks: Three Generations of Tensor Processing Units (TPU's)](https://www.youtube.com/watch?v=VCScWh966u4)のTPUに関する部分のまとめです。  
 TPUv3の概要が公開されたのはおそらく初めてだと思うので、機械学習システムの視点からTPU v2/v3の違いを知りたくてまとめてみました。
 
-一刻も早く違いが知りたい、という人は講演中の下記のスライドを見ると、TPU v1/v2/v3の比較がまとめられています（以下、全てのスライドはYouTubeからの引用）。
+一刻も早く違いが知りたい、という人は講演中の下記のスライド に、TPU v1/v2/v3の比較がまとめられています（以下、全てのスライドはYouTubeからの引用）。
 
-![]({{ site.baseurl }}/images/post/2019-12-31/tpucomparison.png "TPU v1/v2/v3の比較"){: .img-mv}
+<!-- ![]({{ site.baseurl }}/images/post/2019-12-31/tpucomparison.png "TPU v1/v2/v3の比較"){: .img-mv} -->
+<img src="{{ site.baseurl }}/images/post/2019-12-31/tpucomparison.png" width="50%" height="50%">
 
 
 # 講演の内容について
@@ -39,8 +40,8 @@ TPUv3の概要が公開されたのはおそらく初めてだと思うので、
 
 ### TPUv1のアーキテクチャ
 
-65536の8bit integer Multiply-acculate (MAC) unitを持ち、700MHzのクロックで動作します。
-4MiBのon-chip accumulatorメモリと24MiBのon-chip activationメモリを持ちます。
+700MHzのクロックで動作し、65536の8bit integer Multiply-acculate (MAC) unit、ます。
+4MiBのon-chip accumulatorメモリ、24MiBのon-chip activationメモリ、を持ちます。
 
 ![]({{ site.baseurl }}/images/post/2019-12-31/tpuv1architecture.png "TPUv1のアーキテクチャ図"){: .img-mv}
 
