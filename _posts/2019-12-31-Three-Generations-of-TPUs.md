@@ -22,16 +22,16 @@ TPUv3の概要が公開されたのはおそらく初めてだと思うので、
 
 # 講演の内容について
 
-（注）講演は以下の３つの話題を扱っていますが、このまとめでは最初のTPU、についてだけ触れます。
+（注）講演は以下の3つの話題を扱っていますが、このまとめでは最初のTPU、についてだけ触れます。
 - TPU
 - XLAコンパイラ
 - ベンチマーク
 
-この講演は、以下の２つのPaperが元になっています（２つ目はまだ出版されていないので、初めて聞く話もあるだろう、と話しています）。
+この講演は、以下の２つのpaperが元になっています（2つ目はまだ出版されていないので、初めて聞く話もあるだろう、と話しています）。
 - A Domain-Specific Architecture for Deep Neural Networks, Jouppi, Young, Patil, and Petterson, Communications of the ACM, September 2018
 - A Domain-Specific Supercomputer for Training Deep Neural Networks, Jouppi, Yoon, Kurian, Li, Patil, Laudon, Young, and Patterson, Communications of the ACM, Summer 2020 (to appear)
 
-## TPUの最初のストーリー（つまりTPU 1について）
+## TPUの最初のストーリー（つまりTPUv1について）
 
 2013年にdeep neural network(DNN)の新しいアプリの需要が爆発的に増えたので、DNNの推論のTotal Cost of Ownership(TCO)を10倍減らすことを目的にして、カスタムハードウェアを作ることにしました。非常に短い期間でTPUv1は開発されました。具体的には、2014年に始めて、15ヶ月後にデータセンターで使われていました。アーキテクチャ開発、ハードウェアデザイン、コンパイラ開発、テスト、デプロイ、全てをこの間に行いました。
 
@@ -41,8 +41,7 @@ TPUv3の概要が公開されたのはおそらく初めてだと思うので、
 
 ### TPUv1のアーキテクチャ
 
-700MHzのクロックで動作し、65536の8bit integer Multiply-acculate (MAC) unit、ます。
-4MiBのon-chip accumulatorメモリ、24MiBのon-chip activationメモリ、を持ちます。
+700MHzのクロックで動作し、65536の8bit integer Multiply-acculate (MAC) unit、4MiBのon-chip accumulatorメモリ、24MiBのon-chip activationメモリ、を持ちます。
 <br />
 <!-- ![]({{ site.baseurl }}/images/post/2019-12-31/tpuv1architecture.png "TPUv1のアーキテクチャ図"){: .img-mv} -->
 <img src="{{ site.baseurl }}/images/post/2019-12-31/tpuv1architecture.png" width="50%" height="50%">
@@ -93,11 +92,9 @@ TPUv1ではメモリは標準のものを使ったので、それほど速くな
 <!-- ![]({{ site.baseurl }}/images/post/2019-12-31/trainingisharder.png "訓練のサポートが難しい理由"){: .img-mv} -->
 <img src="{{ site.baseurl }}/images/post/2019-12-31/trainingisharder.png" width="50%" height="50%">
 <br />
-<br />
-訓練は計算量が多い仕事なので、Machine learningにおいてブレークスルーを起こすためには、クラスタで構成される高速なSuper computerを作る必要があります。そのためには、ネットワークが重要です。  
-<br />
+訓練は計算量が多い仕事なので、machine learningにおいてブレークスルーを起こすためには、クラスタで構成される高速なSuper computerを作る必要があります。そのためには、ネットワークが重要です。　　
 TPUv2チップは、Inter-core interconnection(ICI)を4つ内蔵しています。
-- 両方向で500Gbit/s
+- 両方向で500Gbit/sの転送速度。
 - 2Dトーラスを構成します。
 - TPUv2チップを、wireを介して、ラック間であっても直接接続できます。
 - ICIはTPUv2ダイの13%しか使っていません。
