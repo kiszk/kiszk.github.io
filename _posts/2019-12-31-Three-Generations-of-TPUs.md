@@ -119,7 +119,8 @@ TPUv2チップは、Inter-core interconnection(ICI)を4つ内蔵しています�
 <br />
 フロアプランを見ると、TPUv1と違いTPUv2ではMXUはそれほど大きな部分を占めてはいません。
 <br />
-![]({{ site.baseurl }}/images/post/2019-12-31/tpuv2floorplan.png "TPUv2のフロアプラン"){: .img-mv}
+<!-- ![]({{ site.baseurl }}/images/post/2019-12-31/tpuv2floorplan.png "TPUv2のフロアプラン"){: .img-mv} -->
+<img src="{{ site.baseurl }}/images/post/2019-12-31/tpuv2floorplan.png" width="50%" height="50%">
 
 
 ### TPUv2の開発中に、neural network業界に何が起きたか？
@@ -133,11 +134,11 @@ TPUv2では、ソフトとハードで対応しました。
 
 
 ### TPU2のInstruction set architecture(ISA)
-8演算まで実行可能な、322-bitのVLIW命令からなります。
-- 2スカラarithmetic演算
-- 2ベクタarithmetic演算
-- 1ベクタロード
-- 1ベクタストア
+8演算まで同時実行可能な、322-bitのVLIW命令からなります。
+- 2つのスカラarithmetic演算
+- 2つのベクタarithmetic演算
+- 1つのベクタロード
+- 1つのベクタストア
 - 2つのMXUとTRPユニットとのやり取りのためのキュー
 <br />
 メモリ・レジスタは以下のようなものがあります。
@@ -148,7 +149,7 @@ TPUv2では、ソフトとハードで対応しました。
 32K 128 32-bit ベクタメモリ
 <br />
 <!-- ![]({{ site.baseurl }}/images/post/2019-12-31/tpuv2isa.png "TPUv2のISA"){: .img-mv} -->
-<img src="{{ site.baseurl }}/images/post/2019-12-31/batchnormalization.png" width="50%" height="50%">
+<img src="{{ site.baseurl }}/images/post/2019-12-31/tpuv2isa.png" width="50%" height="50%">
 
 ## TPUv3について
 TPUv3は、TPUv2と同じテクノロジを使っています。違いは、
@@ -166,4 +167,5 @@ TPUv3は、TPUv2と同じテクノロジを使っています。違いは、
 <!-- ![]({{ site.baseurl }}/images/post/2019-12-31/tpusystempic.png "TPUv2とv3のラックの写真"){: .img-mv} -->
 <img src="{{ site.baseurl }}/images/post/2019-12-31/tpusystempic.png" width="50%" height="50%">
 <br />
-TPUv1/v2/v3の比較表は、[この記事の最初](#この記事の内容は？)にあります。
+<br />
+TPUv1/v2/v3の比較表は、[この記事の最初](#この記事の内容は)にあります。
