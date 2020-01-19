@@ -108,7 +108,7 @@ TPUv2チップは、Inter-core interconnection(ICI)を4つ内蔵しています�
 - 128x128のMatrix Multiply Unit (MXU)
 - 128x128のmatricesをTranpose, reduction, permuteするユニット(TRP)
 - 32の2Dベクタレジスタと、2Dベクタメモリ(16Mib)を持つベクタユニット(VPU)。性能はMXUの1/10程度です。
-- 1つのtensor coreあたり2つのHBM stackと64-bitバスで繋ぎました（トータルでTPUv1の20倍のバンド幅を確保しました。TPUv1でメモリバンド幅が足りなかった、という教訓を反映させました）。
+- 1つのtensor coreあたり~~2つのHBM stackと64-bitバスで繋ぎました~~2つのHBM stackを32本の64-bitバスで繋ぎました(*1)（トータルでTPUv1の20倍のバンド幅を確保しました。TPUv1でメモリバンド幅が足りなかった、という教訓を反映させました）。
 <br />
 <!-- ![]({{ site.baseurl }}/images/post/2019-12-31/tpuv2blockdiagram.png "TPUv2のブロックダイヤグラム"){: .img-mv} -->
 <img src="{{ site.baseurl }}/images/post/2019-12-31/tpuv2blockdiagram.png" width="50%" height="50%">
@@ -166,3 +166,6 @@ TPUv3は、TPUv2と同じテクノロジを使っています。違いは、
 <br />
 <br />
 TPUv1/v2/v3の比較表は、[この記事の最初](#この記事の内容は)にあります。
+<br />
+<br />
+(*1)[Twitterで@Vengineerさんからご指摘を頂き](https://twitter.com/Vengineer/status/1218379950798995456)修正しました。
